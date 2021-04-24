@@ -1,8 +1,10 @@
+import { join } from 'path'
+
 module.exports = {
   type: 'postgres',
   url: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false },
-  entities: ['src/models/**/*.ts'],
-  migrations: ['src/migration/**/*.ts'],
-  subscribers: ['src/subscriber/**/*.ts'],
+  // ssl: { rejectUnauthorized: false },
+  entities: [join(__dirname, '**', '*.entity.{ts,js}')],
+  migrations: ['src/migration/**/*.{ts,js}'],
+  subscribers: ['src/subscriber/**/*.{ts,js}'],
 }
